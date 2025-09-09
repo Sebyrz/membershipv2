@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neopausia - Consulta + Membresía Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5A27',
+                        'accent-warm': '#E67E22',
+                        'accent-warm-light': '#FDF2E9',
+                        'accent-warm-dark': '#D35400',
+                        'accent-cool': '#3498DB',
+                        'accent-cool-light': '#EBF8FF',
+                        'accent-cool-dark': '#2980B9',
+                        success: '#27AE60',
+                        warning: '#F39C12',
+                        error: '#E74C3C',
+                        'medical-green': '#2ECC71',
+                        'medical-blue': '#3498DB',
+                        'medical-purple': '#9B59B6',
+                        'medical-orange': '#E67E22',
+                        'medical-red': '#E74C3C',
+                        'medical-teal': '#1ABC9C',
+                        'medical-pink': '#E91E63',
+                        'medical-indigo': '#3F51B5',
+                        'medical-cyan': '#00BCD4',
+                        'medical-lime': '#CDDC39',
+                        'medical-amber': '#FFC107',
+                        'medical-deep-orange': '#FF5722',
+                        'medical-brown': '#795548',
+                        'medical-grey': '#607D8B',
+                        'medical-blue-grey': '#546E7A',
+                        'medical-light-green': '#8BC34A',
+                        'medical-light-blue': '#03A9F4',
+                        'medical-light-purple': '#BA68C8',
+                        'medical-light-orange': '#FFB74D',
+                        'medical-light-red': '#EF5350',
+                        'medical-light-teal': '#4DB6AC',
+                        'medical-light-pink': '#F06292',
+                        'medical-light-indigo': '#7986CB',
+                        'medical-light-cyan': '#4DD0E1',
+                        'medical-light-lime': '#DCE775',
+                        'medical-light-amber': '#FFD54F',
+                        'medical-light-deep-orange': '#FF8A65',
+                        'medical-light-brown': '#A1887F',
+                        'medical-light-grey': '#90A4AE',
+                        'medical-light-blue-grey': '#78909C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-medical {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+            border: 1px solid #e8f5e8;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .card-medical-featured {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            border: 2px solid #2D5A27;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-neopausia-primary {
+            background: linear-gradient(135deg, #2D5A27 0%, #27AE60 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-neopausia-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 90, 39, 0.3);
+        }
+        .btn-neopausia-outline {
+            background: transparent;
+            color: #2D5A27;
+            border: 2px solid #2D5A27;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-neopausia-outline:hover {
+            background: #2D5A27;
+            color: white;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #e5e7eb;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .toggle-switch.active {
+            background: #2D5A27;
+        }
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .toggle-switch.active::after {
+            transform: translateX(30px);
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        .benefit-icon {
+            width: 20px;
+            height: 20px;
+            color: #2D5A27;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Neopausia</div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary">Inicio</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">Servicios</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">Nosotras</a>
+                    <a href="#" class="text-gray-600 hover:text-primary">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Tu bienestar durante la menopausia
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Acompañamiento médico especializado y comunidad de apoyo para transitar esta etapa con confianza y bienestar.
+            </p>
+        </div>
+
+        <!-- Toggle Section -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <div class="relative">
+                <!-- Toggle positioned elegantly above the card -->
+                <div class="absolute -top-4 md:-top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <div class="bg-white px-3 md:px-6 py-2 md:py-3 rounded-full border border-primary/20 shadow-lg backdrop-blur-sm">
+                        <div class="flex items-center gap-2 md:gap-4">
+                            <span class="text-xs md:text-sm font-medium text-gray-600">Solo consulta</span>
+                            <div class="toggle-switch active" onclick="toggleMembership()"></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-xs md:text-sm font-medium text-gray-600">+ Membresía</span>
+                                <span class="text-xs text-accent-warm font-semibold hidden sm:block">Ahorra desde $120.000 al año</span>
+                            </div>
+                        </div>
+                        <!-- Mobile-only savings text below toggle -->
+                        <div class="text-center mt-2 sm:hidden">
+                            <span class="text-xs text-accent-warm font-semibold">Ahorra desde $120.000 al año</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Unified Card -->
+                <div class="card-medical-featured transition-all duration-300 pt-8">
+                    
+                    <!-- Header -->
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                            Consulta + Membresía Premium
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-600">
+                            Consulta médica inicial + acompañamiento continuo
+                        </p>
+                    </div>
+
+                    <!-- Pricing - Unified single card -->
+                    <div class="text-center mb-8">
+                        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+                            <!-- Initial Price -->
+                            <div class="mb-6">
+                                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">
+                                    $74.980
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    Primer mes (incluye consulta)
+                                </div>
+                            </div>
+
+                            <!-- Monthly Price -->
+                            <div class="mb-6">
+                                <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                                    $25.990 / mes
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    Mínimo 3 meses
+                                </div>
+                            </div>
+
+                            <!-- Savings Badge -->
+                            <div class="inline-flex items-center gap-2 bg-accent-warm-light/20 text-accent-warm px-6 py-3 rounded-full text-base font-semibold">
+                                <span class="text-lg">💰</span>
+                                <span>Ahorras más de $120.000 al año</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description and Benefits -->
+                    <div class="grid lg:grid-cols-2 gap-6 md:gap-8">
+                        
+                        <!-- Membership Benefits -->
+                        <div>
+                            <h4 class="text-base md:text-lg font-semibold text-gray-900 mb-4">
+                                + Beneficios de la membresía:
+                            </h4>
+                            <div class="bg-accent-warm-light/10 rounded-lg p-4 mb-6">
+                                <p class="text-sm text-gray-900 leading-relaxed">
+                                    <strong>Tu mejor inversión en salud:</strong> $25.990/mes → Ahorra desde $120.000 al año.
+                                    El cuidado integral que mereces durante esta etapa tan importante.
+                                </p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Consultas de seguimiento médicas y nutricionales incluidas</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Espacio ilimitado para hacer todas tus preguntas</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Descuentos reales en remedios y suplementos</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700 opacity-60">Comunidad de mujeres que te entienden <span class="text-xs text-accent-warm font-medium ml-2">(Próximamente)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Consultation Benefits -->
+                        <div>
+                            <h4 class="text-base md:text-lg font-semibold text-gray-900 mb-4">
+                                Tu consulta inicial incluye:
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Evaluación médica completa y personalizada</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Plan de tratamiento individualizado</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Recomendaciones nutricionales específicas</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Seguimiento post-consulta</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="text-center mt-8 space-y-4">
+                        <a href="https://neopausia.com/products/atencion-medica-menopausia" target="_blank" rel="noopener noreferrer" class="btn-neopausia-primary w-full inline-block">
+                            Agendar mi Consulta
+                            <svg class="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="/membresia-solo" class="btn-neopausia-outline w-full inline-block">
+                            Ya tuve mi consulta
+                            <svg class="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <div class="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                            <p class="text-sm text-gray-600 text-center">
+                                <strong>¿Ya tuviste tu consulta?</strong> Accede directamente a tu membresía
+                                con beneficios exclusivos y seguimiento personalizado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="text-center mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary mb-2">500+</div>
+                    <div class="text-sm text-gray-600">Mujeres atendidas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary mb-2">98%</div>
+                    <div class="text-sm text-gray-600">Satisfacción</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary mb-2">5+</div>
+                    <div class="text-sm text-gray-600">Años de experiencia</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary mb-2">24/7</div>
+                    <div class="text-sm text-gray-600">Soporte disponible</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleMembership() {
+            const toggle = document.querySelector('.toggle-switch');
+            toggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
+

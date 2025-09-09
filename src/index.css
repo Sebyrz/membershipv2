@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neopausia Design System - Medical & Modern
+All colors MUST be HSL for proper theming
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 180 8% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 180 8% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 180 8% 15%;
+
+    /* Neopausia Brand Colors - Medical Teal/Green */
+    --primary: 180 35% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 180 25% 35%;
+    --primary-lighter: 180 20% 85%;
+
+    /* Secondary Medical Green */
+    --secondary: 160 25% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 160 20% 85%;
+
+    /* Warm Accent for CTAs */
+    --accent-warm: 25 85% 55%;
+    --accent-warm-foreground: 0 0% 98%;
+    --accent-warm-light: 25 60% 85%;
+
+    /* Muted Professional Grays */
+    --muted: 180 5% 96%;
+    --muted-foreground: 180 8% 45%;
+    --muted-dark: 180 5% 92%;
+
+    /* Success/Trust Green */
+    --success: 160 60% 40%;
+    --success-foreground: 0 0% 98%;
+    --success-light: 160 40% 90%;
+
+    /* Warning/Attention */
+    --warning: 45 90% 55%;
+    --warning-foreground: 0 0% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 180 10% 90%;
+    --input: 180 10% 94%;
+    --ring: 180 35% 25%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent-warm)), hsl(25 75% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(var(--primary) / 0.15);
+    --shadow-medium: 0 8px 30px -12px hsl(var(--primary) / 0.25);
+    --shadow-strong: 0 20px 40px -16px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--accent-warm) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 180 8% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 180 8% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 180 8% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 180 25% 70%;
+    --primary-foreground: 180 35% 15%;
+    --primary-light: 180 25% 60%;
+
+    --secondary: 160 25% 35%;
+    --secondary-foreground: 0 0% 95%;
+
+    --accent-warm: 25 75% 50%;
+    --accent-warm-foreground: 0 0% 95%;
+
+    --muted: 180 8% 15%;
+    --muted-foreground: 180 5% 65%;
+    --muted-dark: 180 8% 12%;
+
+    --success: 160 50% 45%;
+    --success-foreground: 0 0% 95%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 180 8% 20%;
+    --input: 180 8% 18%;
+    --ring: 180 25% 70%;
+
+    /* Dark mode shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -12px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 20px 40px -16px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer components {
+  /* Medical Professional Typography */
+  .text-medical-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground;
+  }
+  
+  .text-medical-subheading {
+    @apply text-lg md:text-xl text-muted-foreground leading-relaxed;
+  }
+
+  .text-benefit-item {
+    @apply text-base text-foreground leading-relaxed;
+  }
+
+  /* Custom Buttons */
+  .btn-neopausia-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-light))] 
+           text-primary-foreground font-semibold px-8 py-4 rounded-lg
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]
+           transition-[var(--transition-smooth)] hover:scale-105
+           focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2;
+  }
+
+  .btn-neopausia-secondary {
+    @apply bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] 
+           border-2 border-[hsl(var(--border))] font-semibold px-8 py-4 rounded-lg
+           hover:bg-[hsl(var(--muted-dark))] hover:border-[hsl(var(--primary))]
+           transition-[var(--transition-smooth)] hover:scale-105
+           focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2;
+  }
+
+  .btn-neopausia-warm {
+    @apply bg-gradient-to-r from-[hsl(var(--accent-warm))] to-[hsl(25_75%_65%)]
+           text-accent-warm-foreground font-bold px-8 py-4 rounded-lg
+           shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-strong)]
+           transition-[var(--transition-bounce)] hover:scale-110
+           focus:ring-2 focus:ring-[hsl(var(--accent-warm))] focus:ring-offset-2;
+  }
+
+  /* Medical Cards */
+  .card-medical {
+    @apply bg-card border border-[hsl(var(--border))] rounded-xl p-6
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]
+           transition-[var(--transition-smooth)];
+  }
+
+  .card-medical-featured {
+    @apply card-medical border-2 border-[hsl(var(--primary))]
+           shadow-[var(--shadow-medium)] hover:shadow-[var(--shadow-strong)]
+           relative overflow-hidden;
+  }
+
+  .card-medical-featured::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r 
+           from-[hsl(var(--primary))] to-[hsl(var(--secondary))];
+  }
+
+  /* Toggle Switch */
+  .toggle-medical {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full
+           bg-[hsl(var(--muted-dark))] transition-colors duration-300
+           focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))]
+           focus:ring-offset-2 cursor-pointer;
+  }
+
+  .toggle-medical[data-checked="true"] {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--secondary))];
+  }
+
+  .toggle-medical-thumb {
+    @apply inline-block h-4 w-4 transform rounded-full bg-white
+           transition-transform duration-300 translate-x-1
+           shadow-sm;
+  }
+
+  .toggle-medical[data-checked="true"] .toggle-medical-thumb {
+    @apply translate-x-6;
+  }
+
+  /* Benefit Lists */
+  .benefit-list {
+    @apply space-y-3;
+  }
+
+  .benefit-item {
+    @apply flex items-start gap-3 text-benefit-item;
+  }
+
+  .benefit-icon {
+    @apply flex-shrink-0 w-5 h-5 text-[hsl(var(--success))] mt-0.5;
+  }
+
+  /* Responsive Container */
+  .container-neopausia {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
